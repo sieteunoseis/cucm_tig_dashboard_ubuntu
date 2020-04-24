@@ -4,8 +4,14 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 # Access/Credentials
 
 ### Ubuntu OS
+* http://localhost:3000/
 * username: dashadmin
 * password: *TietERison*
+
+Nginx is install if you want to create a reverse proxy to port 3000
+
+https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0
+https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1
 
 ### InfluxDB
 * username: none
