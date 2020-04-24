@@ -3,7 +3,7 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 
 * [Download OVA](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/releases/download/v1.0/cucm_tig_ubuntu.ova)
 
-![Sample Graph](https://octodex.github.com/images/yaktocat.png)
+![Sample Graph](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/blob/master/screenshots/Grafana1.png)
 
 ## Access/Credentials
 
