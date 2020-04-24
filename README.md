@@ -4,22 +4,23 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 # Access/Credentials
 
 ### Ubuntu OS
-* http://localhost:3000/
 * username: dashadmin
 * password: *TietERison*
 
-Nginx is install if you want to create a reverse proxy to port 3000
-
-https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0
-https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1
-
 ### InfluxDB
+* http://localhost:8086/
 * username: none
 * password: none
 
 ### Grafana
+* http://localhost:3000/
 * username: admin
 * password: OmituRepRa
+
+Nginx is install if you want to create a reverse proxy to port 3000.
+
+https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0
+https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1
 
 # Ubuntu Settings
 
@@ -33,6 +34,8 @@ https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu
 
 ### PM2 Commands (Process manager running python scripts)
 
+PM2 is already set up to run scripts on Cisco's DevNet 12.5 Collaboration Sandbox. You'll need to delete all the processes and add new ones for your IP addresses. I created an Excel spreadsheet to help create the command lines for this step. The Jabber Registration example is below.
+
 ```
 $ pm2 [list|ls|status]
 $ pm2 flush
@@ -42,7 +45,7 @@ $ pm2 reload app_name
 $ pm2 stop app_name
 $ pm2 delete app_name
 $ pm2 start perfmon_arg.py --interpreter python3 --name thread --cron '*/5 * * * *' --no-autorestart -- -ip 10.10.20.1 10.10.20.2 -u administrator -p ciscopsdt -c 'Cisco CallManager'
-$ pm2 start  cisco_axl_jabber.py --interpreter python3 --name jabber_status --cron '*/5 * * * *' --no-autorestart -- -ip 170.2.96.82 -u wordenj -p Timbers2019! -v 12.0
+$ pm2 start  cisco_axl_jabber.py --interpreter python3 --name jabber_status --cron '*/5 * * * *' --no-autorestart -- -ip 10.10.20.1 -u administrator -p ciscopsdt -v 12.0
 $ pm2 save or pm2 set pm2:autodump true
 $ pm2 stop all
 $ pm2 show <id|name>
@@ -70,7 +73,7 @@ $ sudo usermod -a -G dashadmin sftp
 
 ### InfluxDB commands
 
-* InfluxDB is already configured with sample data in it from Cisco's DevNet CUCM's
+InfluxDB is already configured with sample data in it from Cisco's DevNet CUCM's
 
 ```
 $ sudo nano /etc/influxdb/influxdb.conf
@@ -83,22 +86,32 @@ $ influx -precision rfc3339
 > use cisco_risport
 > show measurements
 ```
-* If you'd like to remove the data and start fresh
+If you'd like to remove the data and start fresh do the following:
+
 ```
 $ influx -precision rfc3339
 > drop database cisco_perfmon
 > CREATE DATABASE cisco_perfmon WITH DURATION 90d
 > drop database cisco_risport
 > CREATE DATABASE cisco_risport WITH DURATION 90d
+> drop database telegraf
+> CREATE DATABASE telegraf WITH DURATION 90d
 ```
 
-###Telegraf
+### Telegraf
+
+Telgraf config file needs to be edit with updated IP addresses. Telegraf is used to pull stats from CUCM via SNMP. This was done due to a bug in the Perfmon API.
+
+[CSCvn19112](https://bst.cloudapps.cisco.com/bugsearch/bug/CSCvn19112/?rfs=iqvred)
+
+```
 $ sudo nano /etc/telegraf/telegraf.conf
 $ sudo service telegraf restart
-
 $ telegraf -test -config /etc/telegraf/telegraf.conf
 $ snmpwalk -c dashboardRO -v 2c 10.10.20.1 -m +CISCO-CCM-MIB 1.3.6.1.4.1.9.9.156
 $ cd /usr/share/snmp/mibs
+```
 
+Majority of this configuration was from this guide:
 
 https://angristan.xyz/2018/04/monitoring-telegraf-influxdb-grafana/
