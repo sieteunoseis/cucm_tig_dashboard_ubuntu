@@ -1,6 +1,8 @@
 # Ubuntu OVA image running a TIG Stack (Telegraf, InfluxDB, and Grafana) on Ubuntu 18.04 LTS
 OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Risport data
 
+[Download](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/releases/download/v1.0/CUCM_TIG_Ubuntu_18.04.4.ova)
+
 # Access/Credentials
 
 ### Ubuntu OS
@@ -112,6 +114,13 @@ $ snmpwalk -c dashboardRO -v 2c 10.10.20.1 -m +CISCO-CCM-MIB 1.3.6.1.4.1.9.9.156
 $ cd /usr/share/snmp/mibs
 ```
 
-Majority of this configuration was from this guide:
+Majority of the telegraf configuration was from this guide:
 
 https://angristan.xyz/2018/04/monitoring-telegraf-influxdb-grafana/
+
+### Python Scripts
+
+Scripts are in the /home/dashboard/development directory. They are pulled from the following:
+
+[Perfmon]()
+[Jabber Risport]()
