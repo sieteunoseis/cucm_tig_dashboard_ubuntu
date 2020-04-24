@@ -15,9 +15,19 @@ OVA Image TIG Stack Ubuntu
 * username: admin
 * password: OmituRepRa
 
-# View IP Address
-$ ip addr show ens33 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+# Ubuntu Settings
 
+### View IP Address
+```
+$ ip addr show ens33 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+```
+
+### Set static IP address
+https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu
+
+### PM2 Commands (Process manager running python scripts)
+
+```
 $ pm2 [list|ls|status]
 $ pm2 flush
 $ pm2 log
@@ -32,29 +42,51 @@ $ pm2 stop all
 $ pm2 show <id|name>
 $ pm2 startup
 $ pm2 monit
+```
 
-#SFTP Configuration
+### SFTP Configuration (This is already preconfigured)
+```
 $ sudo groupadd sftp
 $ sudo nano /etc/ssh/sshd_config
+```
 
-Paste at bottom
+#### Paste at bottom
+```
 Match group sftp
 ChrootDirectory /
 X11Forwarding no
 AllowTcpForwarding no
-
+```
+#### Add user to group
+```
 $ sudo usermod -a -G dashadmin sftp
+```
 
+### InfluxDB commands
 
+* InfluxDB is already configured with sample data in it from Cisco's DevNet CUCM's
+
+```
 $ sudo nano /etc/influxdb/influxdb.conf
 $ influx -precision rfc3339
 > show databases
 > CREATE DATABASE cisco_perfmon WITH DURATION 90d
 > use cisco_perfmon
 > show measurements
+> CREATE DATABASE cisco_risport WITH DURATION 90d
+> use cisco_risport
+> show measurements
+```
+* If you'd like to remove the data and start fresh
+```
+$ influx -precision rfc3339
+> drop database cisco_perfmon
+> CREATE DATABASE cisco_perfmon WITH DURATION 90d
+> drop database cisco_risport
+> CREATE DATABASE cisco_risport WITH DURATION 90d
+```
 
-
-Telegraf
+###Telegraf
 $ sudo nano /etc/telegraf/telegraf.conf
 $ sudo service telegraf restart
 
