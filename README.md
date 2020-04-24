@@ -3,9 +3,17 @@ OVA Image TIG Stack Ubuntu
 
 # Access/Credentials
 
-# Ubuntu OS
-dashadmin
-TietERison
+### Ubuntu OS
+* username: dashadmin
+* password: *TietERison*
+
+### InfluxDB
+* username: none
+* password: none
+
+### Grafana
+* username: admin
+* password: OmituRepRa
 
 # View IP Address
 $ ip addr show ens33 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
@@ -37,8 +45,6 @@ AllowTcpForwarding no
 
 $ sudo usermod -a -G dashadmin sftp
 
-InfluxDB
-no username/password
 
 $ sudo nano /etc/influxdb/influxdb.conf
 $ influx -precision rfc3339
@@ -47,9 +53,6 @@ $ influx -precision rfc3339
 > use cisco_perfmon
 > show measurements
 
-# Grafana
-admin
-OmituRepRa
 
 Telegraf
 $ sudo nano /etc/telegraf/telegraf.conf
