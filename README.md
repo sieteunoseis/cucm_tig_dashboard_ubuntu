@@ -19,8 +19,8 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 
 Nginx is install if you want to create a reverse proxy to port 3000.
 
-(https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0)
-(https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1)
+* [Grafana Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0)
+* [NGINX Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1)
 
 # Ubuntu Settings
 
