@@ -134,11 +134,13 @@ Nginx is also install if you want to create a reverse proxy to port 3000.
 
 Scripts are in the /home/dashboard/development directory. They are pulled from the following:
 
-[Perfmon](https://github.com/sieteunoseis/cisco_perfmon_influxdb)
-[Jabber Risport](https://github.com/sieteunoseis/cisco_risport_influxdb)
+* [Perfmon](https://github.com/sieteunoseis/cisco_perfmon_influxdb)
+* [Jabber Risport](https://github.com/sieteunoseis/cisco_risport_influxdb)
 
 Sample python scripts are running via PM2. You can do the following to list them:
 
 ```
 $ pm2 list
 ```
+
+Enjoy!
