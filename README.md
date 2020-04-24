@@ -1,7 +1,7 @@
 # OVA image running a TIG Stack (Telegraf, InfluxDB, and Grafana) on Ubuntu 18.04 LTS
 OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Risport data
 
-[Download](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/releases/download/v1.0/CUCM_TIG_Ubuntu_18.04.4.ova)
+[Download OVA](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/releases/download/v1.0/CUCM_TIG_Ubuntu_18.04.4.ova)
 
 # Access/Credentials
 
