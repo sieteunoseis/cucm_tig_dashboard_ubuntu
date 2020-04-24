@@ -3,7 +3,7 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 
 [Download OVA](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/releases/download/v1.0/cucm_tig_ubuntu.ova)
 
-# Access/Credentials
+## Access/Credentials
 
 ### Ubuntu OS
 * username: dashadmin
@@ -19,7 +19,7 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 * username: admin
 * password: OmituRepRa
 
-# Ubuntu Settings
+## Ubuntu Settings
 
 ### View IP Address
 ```
@@ -68,7 +68,7 @@ AllowTcpForwarding no
 $ sudo usermod -a -G dashadmin sftp
 ```
 
-# InfluxDB Settings
+## InfluxDB Settings
 
 InfluxDB is already configured with sample data in it from Cisco's DevNet CUCM's
 
@@ -95,7 +95,7 @@ $ influx -precision rfc3339
 > CREATE DATABASE telegraf WITH DURATION 90d
 ```
 
-# Telegraf Settings
+## Telegraf Settings
 
 Telgraf config file needs to be edit with updated IP addresses. Telegraf is used to pull stats from CUCM via SNMP. This was done due to a bug in the Perfmon API.
 
@@ -113,7 +113,7 @@ Majority of the telegraf configuration was from this guide:
 
 https://angristan.xyz/2018/04/monitoring-telegraf-influxdb-grafana/
 
-# Grafana Settings
+## Grafana Settings
 
 Using the default settings created during installation. If you'd like more customization check out:
 
@@ -124,7 +124,7 @@ Nginx is also install if you want to create a reverse proxy to port 3000.
 * [Grafana Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0)
 * [NGINX Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1)
 
-### Python Scripts
+## Python Scripts
 
 Scripts are in the /home/dashboard/development directory. They are pulled from the following:
 
