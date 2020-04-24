@@ -60,14 +60,16 @@ $ sudo groupadd sftp
 $ sudo nano /etc/ssh/sshd_config
 ```
 
-#### Paste at bottom
+Paste at bottom
+
 ```
 Match group sftp
 ChrootDirectory /
 X11Forwarding no
 AllowTcpForwarding no
 ```
-#### Add user to group
+Add user to group
+
 ```
 $ sudo usermod -a -G dashadmin sftp
 ```
