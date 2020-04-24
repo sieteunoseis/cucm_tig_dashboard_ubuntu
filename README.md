@@ -19,11 +19,6 @@ OVA Image running a TIG Stack on Ubuntu to graph Call Manager Perfmon and Rispor
 * username: admin
 * password: OmituRepRa
 
-Nginx is install if you want to create a reverse proxy to port 3000.
-
-* [Grafana Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0)
-* [NGINX Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1)
-
 # Ubuntu Settings
 
 ### View IP Address
@@ -117,6 +112,13 @@ $ cd /usr/share/snmp/mibs
 Majority of the telegraf configuration was from this guide:
 
 https://angristan.xyz/2018/04/monitoring-telegraf-influxdb-grafana/
+
+### Grafana
+
+Nginx is install if you want to create a reverse proxy to port 3000.
+
+* [Grafana Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0)
+* [NGINX Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1)
 
 ### Python Scripts
 
