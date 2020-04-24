@@ -33,7 +33,7 @@ https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu
 
 ### PM2 Commands (Process manager running python scripts)
 
-PM2 is already set up to run scripts on Cisco's [DevNet 12.5 Collaboration Sandbox](https://devnetsandbox.cisco.com/). You'll need to delete all the processes and add new ones for your IP addresses. I created an Excel spreadsheet to help create the command lines for this step. The Jabber Registration example is below.
+PM2 is already set up to run scripts against Cisco's [DevNet 12.5 Collaboration Sandbox](https://devnetsandbox.cisco.com/). You'll need to delete all the processes and add new ones for your IP addresses. I created an Excel spreadsheet to help create the command lines for this step. The Jabber Registration example is below. All example are set to run every 5 minutes.
 
 [Excel Helper](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/blob/master/PM2_Helper.xlsx)
 
@@ -46,7 +46,7 @@ $ pm2 reload app_name
 $ pm2 stop app_name
 $ pm2 delete app_name
 $ pm2 start perfmon_arg.py --interpreter python3 --name thread --cron '*/5 * * * *' --no-autorestart -- -ip 10.10.20.1 10.10.20.2 -u administrator -p ciscopsdt -c 'Cisco CallManager'
-$ pm2 start  cisco_axl_jabber.py --interpreter python3 --name jabber_status --cron '*/5 * * * *' --no-autorestart -- -ip 10.10.20.1 -u administrator -p ciscopsdt -v 12.0
+$ pm2 start cisco_axl_jabber.py --interpreter python3 --name jabber_status --cron '*/5 * * * *' --no-autorestart -- -ip 10.10.20.1 -u administrator -p ciscopsdt -v 12.0
 $ pm2 save or pm2 set pm2:autodump true
 $ pm2 stop all
 $ pm2 show <id|name>
