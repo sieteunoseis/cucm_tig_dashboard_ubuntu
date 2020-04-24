@@ -68,7 +68,7 @@ AllowTcpForwarding no
 $ sudo usermod -a -G dashadmin sftp
 ```
 
-### InfluxDB commands
+# InfluxDB Settings
 
 InfluxDB is already configured with sample data in it from Cisco's DevNet CUCM's
 
@@ -95,7 +95,7 @@ $ influx -precision rfc3339
 > CREATE DATABASE telegraf WITH DURATION 90d
 ```
 
-### Telegraf
+# Telegraf Settings
 
 Telgraf config file needs to be edit with updated IP addresses. Telegraf is used to pull stats from CUCM via SNMP. This was done due to a bug in the Perfmon API.
 
@@ -113,9 +113,13 @@ Majority of the telegraf configuration was from this guide:
 
 https://angristan.xyz/2018/04/monitoring-telegraf-influxdb-grafana/
 
-### Grafana
+# Grafana Settings
 
-Nginx is install if you want to create a reverse proxy to port 3000.
+Using the default settings created during installation. If you'd like more customization check out:
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-grafana-on-ubuntu-18-04
+
+Nginx is also install if you want to create a reverse proxy to port 3000.
 
 * [Grafana Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#0)
 * [NGINX Config](https://grafana.com/tutorials/run-grafana-behind-a-proxy/#1)
@@ -126,3 +130,9 @@ Scripts are in the /home/dashboard/development directory. They are pulled from t
 
 [Perfmon](https://github.com/sieteunoseis/cisco_perfmon_influxdb)
 [Jabber Risport](https://github.com/sieteunoseis/cisco_risport_influxdb)
+
+Sample python scripts are running via PM2. You can do the following to list them:
+
+```
+$ pm2 list
+```
