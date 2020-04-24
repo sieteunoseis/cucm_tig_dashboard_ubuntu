@@ -33,6 +33,8 @@ https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu
 
 PM2 is already set up to run scripts on Cisco's DevNet 12.5 Collaboration Sandbox. You'll need to delete all the processes and add new ones for your IP addresses. I created an Excel spreadsheet to help create the command lines for this step. The Jabber Registration example is below.
 
+[Excel Helper](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/blob/master/PM2_Helper.xlsx)
+
 ```
 $ pm2 [list|ls|status]
 $ pm2 flush
