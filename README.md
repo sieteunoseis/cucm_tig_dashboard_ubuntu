@@ -33,7 +33,7 @@ https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu
 
 ### PM2 Commands (Process manager running python scripts)
 
-PM2 is already set up to run scripts on Cisco's DevNet 12.5 Collaboration Sandbox. You'll need to delete all the processes and add new ones for your IP addresses. I created an Excel spreadsheet to help create the command lines for this step. The Jabber Registration example is below.
+PM2 is already set up to run scripts on Cisco's [DevNet 12.5 Collaboration Sandbox](https://devnetsandbox.cisco.com/). You'll need to delete all the processes and add new ones for your IP addresses. I created an Excel spreadsheet to help create the command lines for this step. The Jabber Registration example is below.
 
 [Excel Helper](https://github.com/sieteunoseis/cucm_tig_dashboard_ubuntu/blob/master/PM2_Helper.xlsx)
 
@@ -76,7 +76,7 @@ $ sudo usermod -a -G dashadmin sftp
 
 ## InfluxDB Settings
 
-InfluxDB is already configured with sample data in it from Cisco's DevNet CUCM's
+InfluxDB is already configured with sample data in it from Cisco's [DevNet 12.5 Collaboration Sandbox](https://devnetsandbox.cisco.com/).
 
 ```
 $ sudo nano /etc/influxdb/influxdb.conf
