@@ -122,5 +122,5 @@ https://angristan.xyz/2018/04/monitoring-telegraf-influxdb-grafana/
 
 Scripts are in the /home/dashboard/development directory. They are pulled from the following:
 
-[Perfmon]()
-[Jabber Risport]()
+[Perfmon](https://github.com/sieteunoseis/cisco_perfmon_influxdb)
+[Jabber Risport](https://github.com/sieteunoseis/cisco_risport_influxdb)
