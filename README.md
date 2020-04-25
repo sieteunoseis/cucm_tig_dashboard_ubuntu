@@ -103,7 +103,7 @@ $ influx -precision rfc3339
 
 ## Telegraf Settings
 
-Telgraf config file needs to be edit with updated IP addresses. Telegraf is used to pull stats from CUCM via SNMP. This was done due to a bug in the Perfmon API.
+Telegraf config needs to be edited with updated IP addresses. Telegraf is used to pull stats from CUCM via SNMP. This was done due to a bug in the Perfmon API.
 
 [CSCvn19112](https://bst.cloudapps.cisco.com/bugsearch/bug/CSCvn19112/?rfs=iqvred)
 
